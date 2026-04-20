@@ -42,4 +42,36 @@ html {
     margin: 5px;
     
 }
+#one {
+    display: block;
+    background-color: darkcyan;
+}
+#two {
+     display: block;
+    background-color:goldenrod;
+}
 
+.span-class{
+    background-color:olive;
+}
+.container{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: antiquewhite;
+    height: 20vh;
+   
+}
+
+.flex-box {
+    height: 100px;
+    width: 100px;
+    background-color: rgb(215, 180, 65);
+    box-sizing: border-box;
+    padding: 42px;
+}

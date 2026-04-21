@@ -1,0 +1,46 @@
+/* postion: sticky */
+.header {
+    position: sticky;
+    top:0;
+    background-color: darkolivegreen;
+}
+
+.content {
+    height: 1000px;
+    background-color: darkslategray;
+}
+
+/* postion : absolute */
+.parent {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: goldenrod;
+}
+
+.child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 50px;
+    background-color:rgb(71, 58, 9);
+}
+
+/*grid*/
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100px 100px;
+    gap: 10px;
+}
+.container div {
+    background-color: rgb(104, 125, 163);
+    padding: 20px;
+    border: 2px solid rgb(96, 73, 243);
+}
+
+.item5 {
+    grid-column: 1/3;
+}

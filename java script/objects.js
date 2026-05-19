@@ -83,4 +83,19 @@ let username = [
 let name = username.find((idx) =>{
     return idx.student === 'Anu';
 });
-console.log(name);
+// Async function
+console.log("start");
+setTimeout(() =>{
+    console.log("Hiii")
+},3000)
+console.log("end");
+
+//mini-project for async/await
+
+let btn = document.getElementById("btn");
+btn.addEventListener("click", async() =>{
+    let response =await fetch( "https://jsonplaceholder.typicode.com/users");
+    console.log(response);
+    let data = await response.json();
+    console.log(data);
+})

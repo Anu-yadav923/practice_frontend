@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+    background: #8dbcec7e;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+}
+
+.container {
+    background-color: rgba(221, 160, 221, 0.873);
+    padding: 30px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    
+}
+
+button {
+    padding: 10px;
+    cursor: pointer;
+}

@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #ecb1b1aa;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.container {
+    width: 400px;
+    background-color: blueviolet;
+}
+
+h1 {
+    text-align: center;
+}
+
+.input-box {
+    display: flex;
+    flex-direction:column;
+    gap: 10px;
+}
+
+textarea {
+    height: 120px;
+    padding: 10px;
+    font-size: 16px;
+    resize: none;
+}
+
+button {
+    padding: 12px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#noteContainer {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

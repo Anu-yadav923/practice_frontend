@@ -1,24 +1,27 @@
 import {useState} from "react";
 
 function App() {
+  const[search, setSearch] = useState("");
 
-  const [dark, setDark] = useState(false);
+  const users = ["anu", "herry","tom", "jerry"];
 
-  return(
+  const filteredUsers = users.filter((user) =>{
+    return user.toLowerCase().includes(search.toLowerCase());
+  });
+
+  return (
     <div>
-      <button
-      onClick={() => setDark(!dark)}
-      >
-        Toggle Theme
-      </button>
-      <div
-      style={{
-        backgroundColor: dark ? "black" : "white",
-        height: "100vh",
-      }}
-      ></div>
+      <input type="text" placeholder="Search user" value={search} onChange={(e) => setSearch(e.target.value)}
+      />
+
+      {filteredUsers.map((user, index) => (
+        <h1 key={index}>
+          {user}
+        </h1>
+      ))}
     </div>
-  )
+  );
+
 }
 
 export default App;

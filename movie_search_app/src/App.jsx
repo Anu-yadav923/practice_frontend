@@ -13,7 +13,7 @@ function App() {
             setLoading(true);
             setError("");
 
-            const response = await fetch(`https://www.omdbapi.com/?s=${search}&apikey=3e9959ce`);
+            const response = await fetch(`https://www.omdbapi.com/?s=${search}&apikey=${import.meta.env.VITE_API_KEY}`);
 
             const data = await response.json();
 
@@ -34,7 +34,7 @@ function App() {
     }
 
     return(
-        <div>
+        <div className="card">
 
             <input type="text" placeholder="Search movie" value={search}
             onChange={(e) => setSearch(e.target.value)} />

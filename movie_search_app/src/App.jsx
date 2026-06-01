@@ -1,4 +1,4 @@
-
+import "./App.css";
 import { useState } from "react";
 
 function App() {
@@ -34,12 +34,19 @@ function App() {
     }
 
     return(
-        <div className="card">
+        <div className="app">
 
+            <h1 className="title">
+                Movie Search App
+            </h1>
+
+            <div className="search-box">
             <input type="text" placeholder="Search movie" value={search}
             onChange={(e) => setSearch(e.target.value)} />
 
             <button onClick={fetchMovies}>Search</button>
+
+            </div>
 
             {
                 loading && 
@@ -51,20 +58,29 @@ function App() {
                 <h2>{error}</h2>
             }
 
+            <div className="movie-grid">
+
             {
                 movies.map((movie) =>(
-                    <div key={movie.imdbID}>
+
+                    <div className="movie_card" key={movie.imdbID}>
 
                         <img
                         src={movie.Poster}
                         alt={movie.Title}
                         />
+
+                        <div className="movie-info">
                         <h2>{movie.Title}</h2>
                         <p>{movie.Year}</p>
+                        </div>
 
                     </div>
+
+            
                 ))
             }
+            </div>
 
         </div>
     )

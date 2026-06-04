@@ -1,43 +1,69 @@
-import {Link} from "react-router-dom";
+import {
+    useEffect,
+    useState
+} from "react";
+
+import { Link } from "react-router-dom";
+
 function Home(){
+    const[products, setProducts] = useState([]);
 
-    const products = [
-        {
-            id:1,
-            name:"iphone",
-            price:999
-        },
+    const[loading, setLoading] = useState(true);
 
-        {
-            id:2,
-            name:"samsung",
-            price:799
-        },
+    async function fetchProducts(){
+        try {
+            const response = await fetch("https://dummyjson.com/products");
 
-        {
-            id:3,
-            name:"macBook",
-            price:1999
+            const data = await response.json();
+
+            setProducts(data.products);
+
         }
-    ];
+        catch(error){
+            console.log(error);
+        }
 
-    return(
-        <div>
-            <h1>Products</h1>
+        finally {
+            setLoading(false);
+        }
+    }
 
-            {
-                products.map((product) =>(
-                    <div key={product.id}>
-                        <h2>{product.name}</h2>
+
+    useEffect(() => {
+        fetchProducts();
+    }, []);
+
+    if(loading) {
+        return <h1>Loading...</h1>;
+    }
+
+    return (
+        <div className="container">
+            <h1 className="title">Product Store</h1>
+
+            <div className="grid">
+                {
+                    products.map((product) =>(
+                     <div className="card"
+                        key={product.id}>
+
+                        <img src={product.thumbnail}
+                        alt={product.title} />
+
+                        <h2>{product.title}</h2>
+
                         <p>${product.price}</p>
-                        <Link to={`/product/${product.id}`}>
-                            View Details
-                        </Link>
-                    </div>
-                ))
-            }
+
+                        <Link to={`/product/${product.id}`}>View Details</Link>
+
+                     </div>
+                    ))
+                }
+            </div>
+
         </div>
-    )
+    );
+
 }
 
 export default Home;

@@ -1,27 +1,24 @@
-import {useState} from "react";
+import "./App.css";
+import { useEffect } from "react";
+import gsap from "gsap";
 
 function App() {
-  const[search, setSearch] = useState("");
+  useEffect(() =>{
+    gsap.from(".card",{
+      y:100,
+      opacity:0,
+      duration:1,
+      stagger:0.3
+    })
+  })
 
-  const users = ["anu", "herry","tom", "jerry"];
-
-  const filteredUsers = users.filter((user) =>{
-    return user.toLowerCase().includes(search.toLowerCase());
-  });
-
-  return (
-    <div>
-      <input type="text" placeholder="Search user" value={search} onChange={(e) => setSearch(e.target.value)}
-      />
-
-      {filteredUsers.map((user, index) => (
-        <h1 key={index}>
-          {user}
-        </h1>
-      ))}
+  return(
+    <div className="container">
+      <div className="card">card 2</div>
+      <div className="card">card 3</div>
+      <div className="card">card 1</div>
     </div>
   );
-
 }
 
 export default App;
